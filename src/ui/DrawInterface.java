@@ -1,5 +1,8 @@
 package ui;
 
+import data.Conversion;
+import game.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +11,18 @@ public class DrawInterface extends JLabel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        g.setColor(Game.nextBlock.getColor());
+        for (int i = 0; i <Game.nextBlock.getBounds()[Game.nextBlock.getRotation()].length; i++) {
+            for (int j = 0; j <Game.nextBlock.getBounds()[Game.nextBlock.getRotation()].length; j++) {
+                if(Game.nextBlock.getBounds()[Game.nextBlock.getRotation()] [i][j] == 1) {
+
+                    g.fillRect(Conversion.cellToCoord(1 + i),
+                            Conversion.cellToCoord(j), 32, 32);
+
+                }
+            }
+        }
 
         g.setColor(Color.LIGHT_GRAY);
         for (int i = 0; i < 4; i++) {

@@ -81,7 +81,7 @@ public class Block {
                 bounds = new int[4][3][3];
         }
 
-        File file = new File("rsc/Cubes/" + type + ".txt");
+        File file = new File("rsc/Blocks/" + type + ".txt");
         Scanner sc = new Scanner(file);
 
         for (int variant = 0; variant < 4; variant++) {
@@ -100,6 +100,33 @@ public class Block {
 
         return bounds;
 
+    }
+
+    public int getTypeValue() {
+        switch(type) {
+            case I:
+                return 1;
+
+            case O:
+                return 2;
+
+            case T:
+                return 3;
+
+            case L:
+                return 4;
+
+            case J:
+                return 5;
+
+            case Z:
+                return 6;
+
+            case S:
+                return 7;
+        }
+
+        return 0;
     }
 
     public BlockType getType() {
